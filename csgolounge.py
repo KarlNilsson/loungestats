@@ -28,7 +28,7 @@ if(__name__ == "__main__"):
 
 
 	print data[len(data)-12]
-	print stats[len(data)-11]
+	print stats[len(data)-12]
 
 
 sys.exit()
