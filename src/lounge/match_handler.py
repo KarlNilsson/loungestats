@@ -28,8 +28,9 @@ def print_winner(data_member, stats_member):
 	team_a, team_b, winning_team, match_id = get_match_info(data_member)
 	print (team_a + ": " + (str)(a_value) + " for 1\n")
 	print (team_b + ": " + (str)(b_value) + " for 1\n")
-	print ('\n\nWINNER:\n')
+	print ('\n\nWINNER:\t'),
 	print winning_team
+	print '\n\n'
 
 def remove_closed_games(data, stats):
 	i = 0

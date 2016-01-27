@@ -24,11 +24,12 @@ if(__name__ == "__main__"):
 	
 	data, stats = match_handler.filter_common_matches(data, stats, False)
 
-	match_handler.print_winner(data[len(data)-12], stats[len(data)-12])
+	print
+	match_handler.print_winner(data[len(data)-14], stats[len(data)-14])
 
 
-	print data[len(data)-12]
-	print stats[len(data)-12]
+	print data[len(data)-14]
+	print stats[len(data)-14]
 
 
 sys.exit()
