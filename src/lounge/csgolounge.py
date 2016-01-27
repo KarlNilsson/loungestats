@@ -13,6 +13,13 @@ if(__name__ == "__main__"):
 	profile.print_wallet()
 	profile.provide_matches(matches)
 
+	for i in range(0, len(matches)):
+		profile.check_balance()
+		profile.bet(i, 10)
+
+	profile.print_wallet()
+	profile.print_top_balance()
+	profile.print_bottom_balance()
 
 
 

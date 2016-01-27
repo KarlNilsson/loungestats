@@ -2,7 +2,7 @@ class Match:
 
 	def __init__(self, team_a, team_b, match_id, value_a=0, value_b=0, winner="N/A"):
 		self.team_a 	= team_a
-		self.team_a 	= team_b
+		self.team_b 	= team_b
 		self.match_id 	= match_id
 		self.value_a 	= value_a
 		self.value_b 	= value_b
@@ -16,19 +16,19 @@ class Match:
 			else:
 				value_winner = -1
 
-	def get_teams():
+	def get_teams(self):
 		return (self.team_a, self.team_b)
 
-	def get_values():
+	def get_values(self):
 		return (self.value_a, self.value_b)
 
-	def get_winner():
+	def get_winner(self):
 		return self.winner
 
-	def get_winner_value():
+	def get_winner_value(self):
 		return self.value_winner
 
-	def get_match_id():
+	def get_match_id(self):
 		return self.match_id
 
 	def bet(amount, team):
