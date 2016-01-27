@@ -7,6 +7,10 @@ __pycache__/
 # C extensions
 *.so
 
+# Excel files
+*.csv*
+*.xls*
+
 # Distribution / packaging
 .Python
 env/
@@ -81,9 +85,4 @@ $RECYCLE.BIN/
 *.msp
 
 # Windows shortcuts
-<<<<<<< HEAD
 *.lnk
-=======
-*.lnk
-
->>>>>>> 250dab62d2d6612db84ff728b5f133d0655369c7
