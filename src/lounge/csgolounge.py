@@ -13,43 +13,32 @@ if(__name__ == "__main__"):
 	profile.print_wallet()
 	profile.provide_matches(matches)
 
+	balance_stats = []
+
+	
+	for j in range(0, 100):
+		profile.init_wallet(1000)
+		for i in range(0, len(matches)):
+			profile.check_balance()
+			profile.bet(i, 10, j/100.0)
+		balance_stats.append((round(j/100.0, 2), round(profile.get_balance()), profile.get_matches_bet()))
+
+	fo = open("data3.csv", "w")
+	fo.write("Upper limit, final value, no bets\n")
+	for item in balance_stats:
+		fo.write("%0.2f" %item[0] + "," + str(item[1]) + "," + str(item[2]) + "\n")
+	
+
+	"""
 	for i in range(0, len(matches)):
 		profile.check_balance()
-		profile.bet(i, 10)
-
+		profile.bet(i, 10, 0)
 	profile.print_wallet()
-	profile.print_top_balance()
-	profile.print_bottom_balance()
-
-
-
-	
-	"""
-	prompt = '> '
-
-	while(True):
-		print "Enter the match you would like to watch"
-		try:
-			match_id = (int)(raw_input(prompt))
-		except ValueError:
-			sys.exit()
-		if (match_id < len(data_stats)):
-			data_member = data[match_id]
-			stats_member = stats[match_id]
-			get_value(data_member, stats_member)
-		else:
-			print "Non-existing match id, try again\n"
-	
-	
-
-	print
-	match_handler.print_winner(data[len(data)-14], stats[len(data)-14])
-
-
-	print data[len(data)-14]
-	print stats[len(data)-14]
-	print 'Data length: ' + str(stat_analysis.count_games(data))
 	"""
 
+
+	#profile.print_wallet()
+	#profile.print_top_balance()
+	#profile.print_bottom_balance()
 
 sys.exit()

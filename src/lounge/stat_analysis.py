@@ -17,12 +17,19 @@ class Stat_analysis:
 		self.balance = amount
 		self.top_balance = amount
 		self.bottom_balance = amount
+		self.matches_bet = 0
 
 	def check_balance(self):
 		if self.balance > self.top_balance:
 			self.top_balance = self.balance
 		if self.balance < self.bottom_balance:
 			self.bottom_balance = self.balance
+
+	def get_balance(self):
+		return self.balance
+
+	def get_matches_bet(self):
+		return self.matches_bet
 
 	def print_top_balance(self):
 		print 'Highest balance so far: $' + str(self.top_balance)
@@ -43,7 +50,7 @@ class Stat_analysis:
 		print 'Unable to bet $' + str(amount)
 		self.print_wallet()
 
-	def bet(self, match_pos, amount, strategy = 1):
+	def bet(self, match_pos, amount, minimum, strategy = 1):
 		match = self.matches[match_pos]
 		#if amount > self.balance:
 		#	self.print_outoffunds(amount)
@@ -57,12 +64,15 @@ class Stat_analysis:
 			else:
 				pick = match.get_teams()[1]
 
+		if match.get_values()[0] < minimum:
+			return
+		elif match.get_values()[1] < minimum:
+			return
+
 		if match.get_winner() == pick:
 			profit = amount * match.get_winner_value()
 		elif match.get_winner() != "N/A":
 			profit = amount * -1
 
-		#if profit > 0:
-		#	print match.get_match_id()
-
 		self.balance += profit
+		self.matches_bet += 1
