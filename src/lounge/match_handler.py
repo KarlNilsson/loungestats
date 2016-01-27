@@ -93,9 +93,7 @@ def init_all_matches(data, stats):
 		match_info = get_match_info(data[i])
 		values = get_value(stats[i])
 
-		match = Match(match_info[0], match_info[1], match_info[3], values[0], values[1], match_info[2])
-		matches.append(match)
+		game = match.Match(match_info[0], match_info[1], match_info[3], values[0], values[1], match_info[2])
+		matches.append(game)
 
 	return matches
-
-#def init_match(match_id, data, stats):

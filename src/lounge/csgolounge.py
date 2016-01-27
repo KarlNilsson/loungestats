@@ -1,13 +1,25 @@
-import json_handler, match_handler, sys
+import json_handler, match_handler, stat_analysis, sys
 
 
 if(__name__ == "__main__"):
 
 	data = json_handler.get_matches()
 	stats = json_handler.get_matches_data()
-	prompt = '> '
+	data, stats = match_handler.filter_common_matches(data, stats)
+	matches = match_handler.init_all_matches(data, stats)
+
+	profile = stat_analysis.Stat_analysis()
+	profile.init_wallet(1000)
+	profile.print_wallet()
+	profile.provide_matches(matches)
+
+
+
+
 	
 	"""
+	prompt = '> '
+
 	while(True):
 		print "Enter the match you would like to watch"
 		try:
@@ -20,9 +32,8 @@ if(__name__ == "__main__"):
 			get_value(data_member, stats_member)
 		else:
 			print "Non-existing match id, try again\n"
-	"""
 	
-	data, stats = match_handler.filter_common_matches(data, stats, False)
+	
 
 	print
 	match_handler.print_winner(data[len(data)-14], stats[len(data)-14])
@@ -30,6 +41,8 @@ if(__name__ == "__main__"):
 
 	print data[len(data)-14]
 	print stats[len(data)-14]
+	print 'Data length: ' + str(stat_analysis.count_games(data))
+	"""
 
 
 sys.exit()
